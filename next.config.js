@@ -7,7 +7,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  output: 'export',
   images: {
+    unoptimized: true,
     remotePatterns: [{ protocol: "https", hostname: "**.supabase.co" }]
   }
 };
