@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -8,11 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
     remotePatterns: [{ protocol: "https", hostname: "**.supabase.co" }]
-  },
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
   }
 };
 
