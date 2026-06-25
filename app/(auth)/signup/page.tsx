@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
@@ -41,7 +41,7 @@ export default function SignupPage() {
     router.push("/dashboard");
   }
 
-  return (
+  return (<Suspense fallback={null}>
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-950">
       <div className="card w-full max-w-md">
         <h1 className="mb-1 text-center text-2xl font-extrabold">إنشاء حساب جديد</h1>
@@ -135,6 +135,7 @@ export default function SignupPage() {
         </p>
       </div>
     </div>
+    </Suspense>
   );
 }
 
@@ -142,4 +143,4 @@ function translateError(message: string): string {
   if (message.includes("already registered")) return "هذا البريد الإلكتروني مسجل مسبقاً";
   if (message.includes("Password")) return "كلمة المرور ضعيفة جداً، يجب أن تكون 6 أحرف على الأقل";
   return "حدث خطأ، يرجى المحاولة مرة أخرى";
-}
+          }
