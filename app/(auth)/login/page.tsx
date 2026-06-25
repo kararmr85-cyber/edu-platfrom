@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
+  
   const router = useRouter();
   const params = useSearchParams();
   const supabase = createClient();
@@ -33,6 +35,7 @@ export default function LoginPage() {
   }
 
   return (
+    <Suspense fallback={null}>
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-950">
       <div className="card w-full max-w-md">
         <h1 className="mb-1 text-center text-2xl font-extrabold">تسجيل الدخول</h1>
@@ -90,4 +93,5 @@ export default function LoginPage() {
       </div>
     </div>
   );
-}
+</Suspense>
+  );}
