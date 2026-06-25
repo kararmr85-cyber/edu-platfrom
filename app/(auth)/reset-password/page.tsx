@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
@@ -29,6 +29,7 @@ export default function ResetPasswordPage() {
   }
 
   return (
+    <Suspense fallback={null}>
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-950">
       <div className="card w-full max-w-md">
         <h1 className="mb-1 text-center text-2xl font-extrabold">إعادة تعيين كلمة المرور</h1>
@@ -73,5 +74,6 @@ export default function ResetPasswordPage() {
         </p>
       </div>
     </div>
+      </Suspense>
   );
 }
